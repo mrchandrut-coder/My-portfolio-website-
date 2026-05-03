@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T. Chandru | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0a0a0f;
+--indigo:#6366f1;
+--pink:#ec4899;
+--cyan:#22d3ee;
+--amber:#f59e0b;
+--text:#e5e7eb;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+body{background:var(--bg);color:var(--text);overflow-x:hidden}
+canvas#bg{position:fixed;top:0;left:0;z-index:-2}
+body::after{content:"";position:fixed;inset:0;background:url('https://grainy-gradients.vercel.app/noise.svg');opacity:0.05;z-index:-1}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--indigo),var(--pink));border-radius:10px}
+#loader{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:999;transition:opacity 1s}
+#loader h1{font-family:Syne;font-size:2rem;background:linear-gradient(90deg,var(--indigo),var(--pink));-webkit-background-clip:text;color:transparent}
+.bar{width:150px;height:4px;background:#222;margin-top:10px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--amber));animation:load 2s forwards}
+@keyframes load{to{width:100%}}
+nav{position:fixed;top:15px;left:50%;transform:translateX(-50%);backdrop-filter:blur(12px);background:rgba(255,255,255,0.05);padding:10px 25px;border-radius:50px}
+nav a{margin:0 12px;text-decoration:none;color:white;position:relative;font-size:14px}
+nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--pink);transition:0.3s}
+nav a:hover::after{width:100%}
+section{padding:100px 20px;max-width:1000px;margin:auto}
+.hero{text-align:center}
+.hero h1{font-family:Syne;font-size:3rem;background:linear-gradient(90deg,var(--indigo),var(--pink),var(--cyan));background-size:200%;-webkit-background-clip:text;color:transparent;animation:shimmer 4s infinite}
+.hero p{margin-top:10px;color:#aaa}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+.cta{margin-top:20px}
+.cta button{margin:5px;padding:10px 20px;border:none;border-radius:20px;background:linear-gradient(90deg,var(--indigo),var(--pink));color:white;cursor:pointer}
+.card{margin-top:30px;padding:20px;border-radius:20px;background:rgba(255,255,255,0.05);box-shadow:0 0 20px rgba(99,102,241,0.4);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.skill{margin:15px 0}
+.bar-skill{height:8px;background:#222;border-radius:10px;overflow:hidden}
+.bar-skill span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:1.2s}
+.chips span{display:inline-block;margin:5px;padding:5px 10px;border-radius:20px;background:rgba(255,255,255,0.1);font-size:12px}
+.timeline{border-left:2px solid var(--indigo);padding-left:20px}
+.item{margin:20px 0;opacity:0;transform:translateY(20px);transition:0.6s}
+.item.show{opacity:1;transform:none}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.project{padding:20px;border-radius:15px;background:rgba(255,255,255,0.05);transition:0.3s;position:relative;overflow:hidden}
+.project::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);opacity:0;transition:0.5s}
+.project:hover::before{opacity:1}
+.project:hover{box-shadow:0 0 20px var(--pink)}
+.tags span{font-size:12px;margin-right:5px;color:var(--cyan)}
+.card-box{background:rgba(255,255,255,0.05);padding:15px;border-radius:15px;margin:10px 0}
+.cursor,.ring{position:fixed;border-radius:50%;pointer-events:none}
+.cursor{width:6px;height:6px;background:white}
+.ring{width:30px;height:30px;border:2px solid var(--cyan);transition:0.1s}
+@media(max-width:600px){.hero h1{font-size:2rem}}
+</style>
+</head>
+<body>
+<div id="loader"><h1>TC</h1><div class="bar"><span></span></div></div>
+<canvas id="bg"></canvas>
+<nav>
+<a href="#home">Home</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home" class="hero">
+<h1>T. Chandru</h1>
+<p>Full Stack Developer</p>
+<p>Building modern, responsive and interactive web experiences.</p>
+<div class="cta">
+<button>View Projects</button>
+<button>Contact</button>
+</div>
+<div class="card">10+ Projects • 1.5+ Years Experience • HTML CSS JS</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skill">HTML<div class="bar-skill"><span data-width="80%"></span></div></div>
+<div class="skill">CSS<div class="bar-skill"><span data-width="78%"></span></div></div>
+<div class="skill">JavaScript<div class="bar-skill"><span data-width="75%"></span></div></div>
+<div class="skill">Frameworks<div class="bar-skill"><span data-width="72%"></span></div></div>
+<div class="skill">Git & GitHub<div class="bar-skill"><span data-width="80%"></span></div></div>
+<div class="skill">Firebase<div class="bar-skill"><span data-width="70%"></span></div></div>
+<div class="chips">
+<span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span><span>GitHub</span><span>Firebase</span>
+</div>
+</section>
+
+<section>
+<h2>Experience</h2>
+<div class="timeline">
+<div class="item">1.5+ Years working on web development projects and practical implementations.</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects">
+<div class="project">🤖 Arduino UNO Project<div class="tags"><span>Arduino</span><span>Embedded</span></div></div>
+<div class="project">⚡ Arduino Nano Project<div class="tags"><span>Arduino</span><span>IoT</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>Education</h2>
+<div class="card-box">BCA (2025 - 2028)</div>
+<h2>Languages</h2>
+<div class="card-box">English • Tamil</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="card-box">Email: Not Provided</div>
+</section>
+
+<div class="cursor"></div>
+<div class="ring"></div>
+
+<script>
+setTimeout(()=>{document.getElementById('loader').style.opacity=0;setTimeout(()=>loader.remove(),1000)},2000);
+
+document.querySelectorAll('nav a').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})});
+
+let obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelector('span').style.width=e.target.querySelector('span').dataset.width}})})
+document.querySelectorAll('.skill').forEach(s=>obs.observe(s));
+
+window.addEventListener('scroll',()=>{document.querySelectorAll('.item').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-50){el.classList.add('show')}})});
+
+let c=document.querySelector('.cursor'),r=document.querySelector('.ring');
+document.addEventListener('mousemove',e=>{c.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;r.style.transform=`translate(${e.clientX-10}px,${e.clientY-10}px)`});
+
+let canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');canvas.width=innerWidth;canvas.height=innerHeight;
+let dots=[...Array(70)].map(()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5)}));
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);
+dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>canvas.width)d.vx*=-1;if(d.y<0||d.y>canvas.height)d.vy*=-1;ctx.fillStyle='#fff';ctx.fillRect(d.x,d.y,2,2);
+dots.forEach(d2=>{let dx=d.x-d2.x,dy=d.y-d2.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<100){ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d2.x,d2.y);ctx.stroke();}})});
+requestAnimationFrame(draw)}draw();
+</script>
+
+</body>
+</html>
